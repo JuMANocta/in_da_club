@@ -43,7 +43,7 @@ export class RoomComponent implements OnInit, OnDestroy {
   private localStreams: number[]= [];
   private localStream!: AgoraRTC.Stream;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private auth: AngularFireAuth, private db: AngularFireDatabase, private presenceService : PresenceService, @Inject(DOCUMENT) private document: Document){}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private auth: AngularFireAuth, private db: AngularFireDatabase, private presenceService : PresenceService, @Inject(DOCUMENT) private document: HTMLElement){}
 
   ngOnInit(): void {
     this.roomId = this.activatedRoute.snapshot.paramMap.get('id');

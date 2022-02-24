@@ -18,7 +18,7 @@ export interface Iroom{
 })
 export class RoomsComponent implements OnInit, OnDestroy {
   public $rooms: Observable<Iroom[]> | undefined;
-  public isRoomCreationShown = false;
+  public isRoomCreationShown: boolean = false;
   private user: string | undefined;
   private roomList = this.db.list<Iroom>('rooms');
   private $destroy: Subject<boolean> = new Subject<boolean>();
