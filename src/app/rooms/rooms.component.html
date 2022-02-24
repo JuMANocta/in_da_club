@@ -1,0 +1,19 @@
+<p>rooms works!</p>
+<button class="btn" (click)="logout()">
+    DeConnectez-vous au in-da-club
+</button>
+<section class="rooms">
+    <div class="card" *ngFor="let room of $rooms | async" (click)="navigate(room?.key)">
+        <h4>{{ room.name }}</h4>
+    </div>
+</section>
+<section class="create-rooms" [ngClass]="{'shown': isRoomCreationShown}">
+    <button class="btn" (click)="isRoomCreationShown = !isRoomCreationShown">Créer une ROOM</button>
+    <div class="room-details">
+        <label>
+            <p>Room :</p>
+            <input type="text" #roomName>
+        </label>
+        <button class="btn" (click)="addRoom(roomName)">GO !!</button>
+    </div>
+</section>

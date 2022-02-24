@@ -1,0 +1,13 @@
+<p>room works!</p>
+<section class="room-content">
+    <div #streamContainer></div>
+    <div class="users">
+        <div class="user-card" *ngFor = "let user of $onlineList | async">
+            <img [ngClass]="{'host': user.key === room?.host}" [src]="'https://i.pravatar.cc/150?u='+user.key" alt="photo">
+            <h4>{{ user?.displayName }}</h4>
+        </div>
+    </div>
+</section>
+<section class="room-footer">
+    <button class="btn leave-btn" (click)="leaveRoom()">✌️ Sortir</button>
+</section>
