@@ -49,6 +49,9 @@ export class RoomComponent implements OnInit, OnDestroy {
     this.roomId = this.activatedRoute.snapshot.paramMap.get('id');
     this.initClient();
     this.joinRoom();
+    this.subscribeToStreamStart();
+    this.subscribeToStreamStop();
+    this.$onlineList = this.db.list(`online/${this.roomId}`).valueChanges();
   }
   ngOnDestroy(): void {
     this.presenceService.setPresenceOffline(
