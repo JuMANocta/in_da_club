@@ -153,9 +153,15 @@ export class RoomComponent implements OnInit, OnDestroy {
       this.localStream.stop();
       this.localStream.close();
     }
+    if(this.isHost){
+      this.removeRoom();
+    }
     this.router.navigate(['/rooms']);
   }
   private handleError(err: any): void {
     console.error(err);
+  }
+  private removeRoom(): void{
+    this.db.object(`rooms/${this.roomId}`).remove();
   }
 }
