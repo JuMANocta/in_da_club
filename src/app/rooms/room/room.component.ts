@@ -86,7 +86,7 @@ export class RoomComponent implements OnInit, OnDestroy {
   public joinStream(): void{
     this.streamOptions.streamID = this.roomId == null ? "" : this.roomId;
     this.client.join(
-      'token_agora.io->console->edit->generate_RTC-token',
+      environment.agoraRTC,
       'demo',
       null,
       undefined,
